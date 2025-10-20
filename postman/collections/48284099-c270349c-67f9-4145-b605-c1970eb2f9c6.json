@@ -1,0 +1,1594 @@
+{
+	"info": {
+		"_postman_id": "48284099-c270349c-67f9-4145-b605-c1970eb2f9c6",
+		"name": "Swagger Petstore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "POST - Create new user",
+					"item": [
+						{
+							"name": "PTC_001 - Create new user",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "ef3dc023-e977-4ab9-ad1a-a88141acf6bc",
+										"exec": [
+											"pm.test(\"Status code is 200 OK\", function(){\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"The response is JSON\", function(){\r",
+											"    pm.response.to.be.json;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"The response JSON contains proper attributes: code, type, message\", function(){\r",
+											"    pm.expect(pm.response.json()).to.have.property(\"code\", 200);\r",
+											"    pm.expect(pm.response.json()).to.have.property(\"type\", \"unknown\");\r",
+											"    pm.expect(pm.response.json()).to.have.property(\"message\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48284099-920a761a-9df6-4d7f-852a-be3e3355b328",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"nejlabe3\",\r\n  \"firstName\": \"Nejla\",\r\n  \"lastName\": \"Belagosi\",\r\n  \"email\": \"belagosinejla@hotmail.com\",\r\n  \"password\": \"Nl$b3cdfX#\",\r\n  \"phone\": \"062166353\",\r\n  \"userStatus\": 1\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://petstore.swagger.io/v2/user",
+									"protocol": "https",
+									"host": [
+										"petstore",
+										"swagger",
+										"io"
+									],
+									"path": [
+										"v2",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "NTC_001 - Create new user with invalid request",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "c3031a2e-f255-4438-b34f-b098642f8af5",
+										"exec": [
+											"pm.test(\"Status code is 400 Bad Request\", function(){\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48284099-5ef4a7c4-425d-4623-a501-cf871ccd7420",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 100,\r\n  \"firstName\": \"Nejla\",\r\n  \"lastName\": \"Belagosi\",\r\n  \"email\": \"belagosinejla@hotmail.com\",\r\n  \"password\": \"Nl$b3cdfX#\",\r\n  \"phone\": \"062166353\",\r\n  \"userStatus\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://petstore.swagger.io/v2/user",
+									"protocol": "https",
+									"host": [
+										"petstore",
+										"swagger",
+										"io"
+									],
+									"path": [
+										"v2",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "NTC_002 - Create new user with invalid request",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "19e601f6-0521-4941-8a3b-121f38c31cf2",
+										"exec": [
+											"pm.test(\"Status code is 400 Bad Request\", function(){\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48284099-0d28ea83-7220-437b-b847-9d709f68065e",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 100,\r\n  \"username\": 1223434,\r\n  \"firstName\": \"Nejla\",\r\n  \"lastName\": \"Belagosi\",\r\n  \"email\": \"belagosinejla@hotmail.com\",\r\n  \"password\": \"Nl$b3cdfX#\",\r\n  \"phone\": \"062166353\",\r\n  \"userStatus\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://petstore.swagger.io/v2/user",
+									"protocol": "https",
+									"host": [
+										"petstore",
+										"swagger",
+										"io"
+									],
+									"path": [
+										"v2",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "NTC_003 - Create new user with invalid request",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "514f05d4-8f41-4cfb-8fb2-68a16457d48e",
+										"exec": [
+											"pm.test(\"Status code is 400 Bad Request\", function(){\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48284099-9719dcf3-a2fa-436f-8b00-406116b2268d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 100,\r\n  \"username\": \"$$$$$$$$\",\r\n  \"firstName\": \"Nejla\",\r\n  \"lastName\": \"Belagosi\",\r\n  \"email\": \"belagosinejla@hotmail.com\",\r\n  \"password\": \"Nl$b3cdfX#\",\r\n  \"phone\": \"062166353\",\r\n  \"userStatus\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://petstore.swagger.io/v2/user",
+									"protocol": "https",
+									"host": [
+										"petstore",
+										"swagger",
+										"io"
+									],
+									"path": [
+										"v2",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "NTC_004 - Create new user with invalid request",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6ea93d6e-c0a2-470f-a9f7-72ba6a35f532",
+										"exec": [
+											"pm.test(\"Status code is 400 Bad Request\", function(){\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48284099-cc76faf4-3549-4923-a113-e0c635700e8c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 100,\r\n  \"username\": \"nejlabe3\",\r\n  \"firstName\": \"Nejla\",\r\n  \"lastName\": \"Belagosi\",\r\n  \"password\": \"Nl$b3cdfX#\",\r\n  \"phone\": \"062166353\",\r\n  \"userStatus\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://petstore.swagger.io/v2/user",
+									"protocol": "https",
+									"host": [
+										"petstore",
+										"swagger",
+										"io"
+									],
+									"path": [
+										"v2",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "NTC_005 - Create new user with invalid request",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "52bdbd5c-2581-4931-8d4b-23b76f453776",
+										"exec": [
+											"pm.test(\"Status code is 400 Bad Request\", function(){\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48284099-94680f19-aa58-4ac7-89cc-dd4e6bddd749",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 100,\r\n  \"username\": \"nejlabe3\",\r\n  \"firstName\": \"Nejla\",\r\n  \"lastName\": \"Belagosi\",\r\n  \"email\": \"hotmail.com\",\r\n  \"password\": \"Nl$b3cdfX#\",\r\n  \"phone\": \"062166353\",\r\n  \"userStatus\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "NTC_006 - Create new user with invalid request",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b4a06622-282c-4ac0-a909-3798f3612966",
+										"exec": [
+											"pm.test(\"Status code is 400 Bad Request\", function(){\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48284099-cf2a6fbd-7c2a-47d3-8cc2-fe8b294536fd",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 100,\r\n  \"username\": \"nejlabe3\",\r\n  \"firstName\": \"Nejla\",\r\n  \"lastName\": \"Belagosi\",\r\n  \"email\": \"belagosinejla@hotmail.com\",\r\n  \"phone\": \"062166353\",\r\n  \"userStatus\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://petstore.swagger.io/v2/user",
+									"protocol": "https",
+									"host": [
+										"petstore",
+										"swagger",
+										"io"
+									],
+									"path": [
+										"v2",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "NTC_007 - Create new user with invalid request",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "eb9c7274-2008-40f5-b9f5-0c56bcbe85f6",
+										"exec": [
+											"pm.test(\"Status code is 400 Bad Request\", function(){\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48284099-49cf50e4-fec9-41a6-b457-c0e1a0502e63",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 100,\r\n  \"username\": \"nejlabe3\",\r\n  \"firstName\": \"Nejla\",\r\n  \"lastName\": \"Belagosi\",\r\n  \"email\": \"belagosinejla@hotmail.com\",\r\n  \"password\": \"Nl$b3cdfX# \",\r\n  \"phone\": \"062166353\",\r\n  \"userStatus\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://petstore.swagger.io/v2/user",
+									"protocol": "https",
+									"host": [
+										"petstore",
+										"swagger",
+										"io"
+									],
+									"path": [
+										"v2",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "NTC_008 - Create new user with invalid request",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e649d66c-ccb3-4702-9a06-7d5c37c49122",
+										"exec": [
+											"pm.test(\"Status code is 400 Bad Request\", function(){\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48284099-a89e53b1-f549-4b6f-9d6e-aeb771743ac8",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 100,\r\n  \"username\": \"nejlabe3\",\r\n  \"firstName\": \"Nejla\",\r\n  \"lastName\": \"Belagosi\",\r\n  \"email\": \"belagosinejla@hotmail.com\",\r\n  \"password\": \"n3Jla$\",\r\n  \"phone\": \"062166353\",\r\n  \"userStatus\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://petstore.swagger.io/v2/user",
+									"protocol": "https",
+									"host": [
+										"petstore",
+										"swagger",
+										"io"
+									],
+									"path": [
+										"v2",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "NTC_009 - Create new user with invalid request",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "4c3aa205-23d1-4e7a-adee-6066025e3d7a",
+										"exec": [
+											"pm.test(\"Status code is 400 Bad Request\", function(){\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48284099-a4664933-6369-4334-9365-4e2dea5706a2",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 100,\r\n  \"username\": \"nejlabe3\",\r\n  \"firstName\": \"Nejla\",\r\n  \"lastName\": \"Belagosi\",\r\n  \"email\": \"belagosinejla@hotmail.com\",\r\n  \"password\": \"nl$b3cdfx#\",\r\n  \"phone\": \"062166353\",\r\n  \"userStatus\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://petstore.swagger.io/v2/user",
+									"protocol": "https",
+									"host": [
+										"petstore",
+										"swagger",
+										"io"
+									],
+									"path": [
+										"v2",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "NTC_010 - Crete new user with invalid request",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "4944999a-f572-4d1f-808f-0c5e7b9a8fd3",
+										"exec": [
+											"pm.test(\"Status code is 400 Bad Request\", function(){\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48284099-134e78e7-6297-4fea-8a22-55c53c761e6a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 100,\r\n  \"username\": \"nejlabe3\",\r\n  \"firstName\": \"Nejla\",\r\n  \"lastName\": \"Belagosi\",\r\n  \"email\": \"belagosinejla@hotmail.com\",\r\n  \"password\": \"Nl$becdfx#\",\r\n  \"phone\": \"062166353\",\r\n  \"userStatus\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://petstore.swagger.io/v2/user",
+									"protocol": "https",
+									"host": [
+										"petstore",
+										"swagger",
+										"io"
+									],
+									"path": [
+										"v2",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "NTC_011 - Create new user with invalid request",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "09416cf7-0252-4363-a27d-7839d62501b5",
+										"exec": [
+											"pm.test(\"Status code is 400 Bad Request\", function(){\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48284099-7a77ff1b-44fe-4691-9e8a-8dd28f24477c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 100,\r\n  \"username\": \"nejlabe3\",\r\n  \"firstName\": \"Nejla\",\r\n  \"lastName\": \"Belagosi\",\r\n  \"email\": \"belagosinejla@hotmail.com\",\r\n  \"password\": \"Nl3becdfx4\",\r\n  \"phone\": \"062166353\",\r\n  \"userStatus\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://petstore.swagger.io/v2/user",
+									"protocol": "https",
+									"host": [
+										"petstore",
+										"swagger",
+										"io"
+									],
+									"path": [
+										"v2",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "NTC_012 - Create new user with invalid request",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "7929a31e-fe44-4978-9756-8edff79e0e0e",
+										"exec": [
+											"pm.test(\"Status code is 400 Bad Request\", function(){\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48284099-2da2e017-1429-4a76-a258-42ec327af424",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 100,\r\n  \"username\": \"nejlabe3\",\r\n  \"firstName\": \"Nejla\",\r\n  \"lastName\": \"Belagosi\",\r\n  \"email\": \"belagosinejla@hotmail.com\",\r\n  \"password\": \"nejla\",\r\n  \"phone\": \"062166353\",\r\n  \"userStatus\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://petstore.swagger.io/v2/user",
+									"protocol": "https",
+									"host": [
+										"petstore",
+										"swagger",
+										"io"
+									],
+									"path": [
+										"v2",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "NTC_013 - Create new user with invalid request",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b3c16760-a370-4d9e-9c3b-727deb2e1582",
+										"exec": [
+											"pm.test(\"Status code is 400 Bad Request\", function(){\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48284099-a5798a39-7c04-414a-98b8-34984bf4e36e",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 100,\r\n  \"username\": \"nejlabe3\",\r\n  \"firstName\": \"Nejla\",\r\n  \"lastName\": \"Belagosi\",\r\n  \"email\": \"belagosinejla@hotmail.com\",\r\n  \"password\": \"Nl$b3cdfX#\",\r\n  \"phone\": \"O6216635E\",\r\n  \"userStatus\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://petstore.swagger.io/v2/user",
+									"protocol": "https",
+									"host": [
+										"petstore",
+										"swagger",
+										"io"
+									],
+									"path": [
+										"v2",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "NTC_014- Create new user with invalid request",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "da383052-dc00-44f0-a582-7678965c3844",
+										"exec": [
+											"pm.test(\"Status code is 400 Bad Request\", function(){\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48284099-c4feda28-ae58-4b8e-b375-2ef533b1b358",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 100,\r\n  \"username\": \"nejlabe3\",\r\n  \"firstName\": \"Nejla\",\r\n  \"lastName\": \"Belagosi\",\r\n  \"email\": \"belagosinejla@hotmail.com\",\r\n  \"password\": \"Nl$b3cdfX#\",\r\n  \"phone\": 1234589477326782787282,\r\n  \"userStatus\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://petstore.swagger.io/v2/user",
+									"protocol": "https",
+									"host": [
+										"petstore",
+										"swagger",
+										"io"
+									],
+									"path": [
+										"v2",
+										"user"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "48284099-8a79e95a-d7d8-437e-88ac-32f8f82d7f91"
+				},
+				{
+					"name": "GET - Login",
+					"item": [
+						{
+							"name": "PTC_002 - Logs user into the system",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "8284ae8f-9fa8-41cf-856b-6942a1bbc823",
+										"exec": [
+											"pm.test(\"Status code is 200 OK\", function(){\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"The response is JSON\", function(){\r",
+											"    pm.response.to.be.json;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"The JSON object contains code, type, message\", function(){\r",
+											"    pm.expect(pm.response.json()).to.have.property(\"code\", 200);\r",
+											"    pm.expect(pm.response.json()).to.have.property(\"type\", \"unknown\");\r",
+											"    pm.expect(pm.response.json()).to.have.property(\"message\");\r",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48284099-cde43a6f-d5ea-445f-8d64-8869e496eba7",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://petstore.swagger.io/v2/user/login?username=nejlabe3&password=Nl$b3cdfX%23",
+									"protocol": "https",
+									"host": [
+										"petstore",
+										"swagger",
+										"io"
+									],
+									"path": [
+										"v2",
+										"user",
+										"login"
+									],
+									"query": [
+										{
+											"key": "username",
+											"value": "nejlabe3"
+										},
+										{
+											"key": "password",
+											"value": "Nl$b3cdfX%23"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "NTC_001 - Logs user into the system with no registration",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "af46f019-d8db-4549-b9ca-e6643e1418b8",
+										"exec": [
+											"pm.test(\"Status code is 401 Unauthorized\", function(){\r",
+											"    pm.response.to.have.status(401);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48284099-7265e480-4c58-4f42-890c-0fe79c603c8b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://petstore.swagger.io/v2/user/login?username=nejla2221&password=123Ns%23dO$",
+									"protocol": "https",
+									"host": [
+										"petstore",
+										"swagger",
+										"io"
+									],
+									"path": [
+										"v2",
+										"user",
+										"login"
+									],
+									"query": [
+										{
+											"key": "username",
+											"value": "nejla2221"
+										},
+										{
+											"key": "password",
+											"value": "123Ns%23dO$"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "NTC_001 - Logs user into the system with invalid request",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "be36a5cc-c102-401d-b689-e090e1637dea",
+										"exec": [
+											"pm.test(\"Status code is 400 Bad Request\", function(){\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48284099-fb0d2d41-7e9e-4519-af70-581c08dcd9ac",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://petstore.swagger.io/v2/user/login?password=Nl$b3cdfX%23",
+									"protocol": "https",
+									"host": [
+										"petstore",
+										"swagger",
+										"io"
+									],
+									"path": [
+										"v2",
+										"user",
+										"login"
+									],
+									"query": [
+										{
+											"key": "password",
+											"value": "Nl$b3cdfX%23"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "NTC_002 - Logs user into the system with invalid request",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b80fc9ed-df2d-4fd1-afac-0d1b0eb0edd8",
+										"exec": [
+											"pm.test(\"Status code is 400 Bad Request\", function(){\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48284099-1e399388-4d24-4d53-8b09-fb202af5d30e",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://petstore.swagger.io/v2/user/login?username=nejlabe3",
+									"protocol": "https",
+									"host": [
+										"petstore",
+										"swagger",
+										"io"
+									],
+									"path": [
+										"v2",
+										"user",
+										"login"
+									],
+									"query": [
+										{
+											"key": "username",
+											"value": "nejlabe3"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "NTC_003 - Logs user into the system with invalid request",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "22c04019-eb2f-4370-bd7e-a53e9ff503b1",
+										"exec": [
+											"pm.test(\"Status code is 401 Unauthorized\", function(){\r",
+											"    pm.response.to.have.status(401);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48284099-2ee9251e-d902-4848-b16e-331d181248ac",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://petstore.swagger.io/v2/user/login?username=nejlabe321&password=Nl$b3cdfX%23",
+									"protocol": "https",
+									"host": [
+										"petstore",
+										"swagger",
+										"io"
+									],
+									"path": [
+										"v2",
+										"user",
+										"login"
+									],
+									"query": [
+										{
+											"key": "username",
+											"value": "nejlabe321"
+										},
+										{
+											"key": "password",
+											"value": "Nl$b3cdfX%23"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "NTC_004 - Logs user into the system with invalid request",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "ddbbee1e-5662-4615-a257-5167ba8fc60b",
+										"exec": [
+											"pm.test(\"Status code is 401 Unauthorized\", function(){\r",
+											"    pm.response.to.have.status(401);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48284099-b1c1c439-1b22-4238-885f-a6ee2e7aef5a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://petstore.swagger.io/v2/user/login?username=nejlabe3&password=Nl%24b3c",
+									"protocol": "https",
+									"host": [
+										"petstore",
+										"swagger",
+										"io"
+									],
+									"path": [
+										"v2",
+										"user",
+										"login"
+									],
+									"query": [
+										{
+											"key": "username",
+											"value": "nejlabe3"
+										},
+										{
+											"key": "password",
+											"value": "Nl%24b3c"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "48284099-2b86090c-7e15-41d1-8a7b-c9feac62fdb4"
+				},
+				{
+					"name": "PUT - Update user",
+					"item": [
+						{
+							"name": "PTC_003 - Update user",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "bf673fa8-4d07-4e45-8fbc-1f5d9b45597c",
+										"exec": [
+											"pm.test(\"Status code is 200 OK\", function(){\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is JSON\", function(){\r",
+											"    pm.response.to.be.json;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response JSON contains proper attributes\", function(){\r",
+											"    pm.expect(pm.response.json()).to.have.property(\"code\", 200);\r",
+											"    pm.expect(pm.response.json()).to.have.property(\"type\", \"unknown\");\r",
+											"    pm.expect(pm.response.json()).to.have.property(\"message\");\r",
+											"    \r",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48284099-449331f4-d652-4e7b-b87a-3a048419da96",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"nejlabe3\",\r\n  \"firstName\": \"Nejla\",\r\n  \"lastName\": \"Belagosi\",\r\n  \"email\": \"belagosinejla@gmail.com\",\r\n  \"password\": \"Nl$b3cdfX#\",\r\n  \"phone\": \"062166353\",\r\n  \"userStatus\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://petstore.swagger.io/v2/user/nejlabe3",
+									"protocol": "https",
+									"host": [
+										"petstore",
+										"swagger",
+										"io"
+									],
+									"path": [
+										"v2",
+										"user",
+										"nejlabe3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "NTC_001 - Update user with no authorization",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "5767aca3-ccb3-4a8d-8d5d-5eb2c30a2d05",
+										"exec": [
+											"pm.test(\"Status code is 401 Unauthorized\", function(){\r",
+											"    pm.response.to.have.status(401);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48284099-b2078ab0-272e-4107-8823-6361315aa9a9",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "https://petstore.swagger.io/v2/user/nejlabe3",
+									"protocol": "https",
+									"host": [
+										"petstore",
+										"swagger",
+										"io"
+									],
+									"path": [
+										"v2",
+										"user",
+										"nejlabe3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "NTC_001 - Update user with invalid request",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "49b580a7-f6b1-4fe2-976f-0f1ce649d1a4",
+										"exec": [
+											"pm.test(\"Status code is 400 Bad Request\", function(){\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48284099-c057b1ff-1c82-4553-a582-0d87300b5a84",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \" \",\r\n    \"firstName\": \"Nejla\",\r\n    \"lastName\": \"Belagosi\",\r\n    \"email\": \"belagosinejla@gmail.com\",\r\n    \"password\": \"Nl$b3cdfX#\",\r\n    \"phone\": \"062166353\",\r\n    \"userStatus\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://petstore.swagger.io/v2/user/nejlabe3",
+									"protocol": "https",
+									"host": [
+										"petstore",
+										"swagger",
+										"io"
+									],
+									"path": [
+										"v2",
+										"user",
+										"nejlabe3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "NTC_002 - Update user with invalid request",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b09f1521-efa5-43fe-b371-f73dd3c8d7ea",
+										"exec": [
+											"pm.test(\"Status code is 400 Bad Request\", function(){\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48284099-8b1acd1d-cb6e-4cac-8a40-825080f5c059",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": 33333,\r\n    \"firstName\": \"Nejla\",\r\n    \"lastName\": \"Belagosi\",\r\n    \"email\": \"belagosinejla@gmail.com\",\r\n    \"password\": \"Nl$b3cdfX#\",\r\n    \"phone\": \"062166353\",\r\n    \"userStatus\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://petstore.swagger.io/v2/user/nejlabe3",
+									"protocol": "https",
+									"host": [
+										"petstore",
+										"swagger",
+										"io"
+									],
+									"path": [
+										"v2",
+										"user",
+										"nejlabe3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "NTC_003 - Update user with invalid request",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "7f699eb1-cb5d-49f2-95ab-c456414a0506",
+										"exec": [
+											"pm.test(\"Status code is 400 Bad Request\", function(){\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48284099-fb6d5185-fc0f-4779-8766-c49623c10963",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"nejlabe3\",\r\n  \"firstName\": \"Nejla\",\r\n  \"lastName\": \"Belagosi\",\r\n  \"email\": \"belagosinejla@gmail.com\",\r\n  \"password\": \"Nl$b3cdfX#\",\r\n  \"phone\": O62166353,\r\n  \"userStatus\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://petstore.swagger.io/v2/user/nejlabe3",
+									"protocol": "https",
+									"host": [
+										"petstore",
+										"swagger",
+										"io"
+									],
+									"path": [
+										"v2",
+										"user",
+										"nejlabe3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "NTC_004 - Update user with invalid request",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b3921ad6-83e6-45d9-900e-353a99203290",
+										"exec": [
+											"pm.test(\"Status code is 404 Not Found\", function(){\r",
+											"    pm.response.to.have.status(404);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48284099-4cc47a8d-5f09-414f-b624-6f9650f42fb7",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n \"id\": 100,\r\n  \"username\": \"nejlabe3\",\r\n  \"firstName\": \"Nejla\",\r\n  \"lastName\": \"Belagosi\",\r\n  \"email\": \"belagosinejla@gmail.com\",\r\n  \"password\": \"Nl$b3cdfX#\",\r\n  \"phone\": \"062166353\",\r\n  \"userStatus\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://petstore.swagger.io/v2/user/nejlabe312132",
+									"protocol": "https",
+									"host": [
+										"petstore",
+										"swagger",
+										"io"
+									],
+									"path": [
+										"v2",
+										"user",
+										"nejlabe312132"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "48284099-6563214e-e698-4236-9458-e6a32afe0c46"
+				},
+				{
+					"name": "DELETE - User from the system",
+					"item": [
+						{
+							"name": "PTC_004 - Delete user from the system",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "fb77de29-2e74-4f8d-843f-2dbb9c9ce46d",
+										"exec": [
+											"pm.test(\"Status code is 200 OK\", function(){\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"The response is JSON\", function(){\r",
+											"    pm.response.to.be.json;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Verify that JSON objcet contains proper attributes\", function(){\r",
+											"    pm.expect(pm.response.json()).to.have.property(\"code\", 200);\r",
+											"    pm.expect(pm.response.json()).to.have.property(\"type\", \"unknown\");\r",
+											"    pm.expect(pm.response.json()).to.have.property(\"message\", \"nejlabe3\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48284099-ad620e3a-2a11-455e-a05c-a3798024bcb0",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://petstore.swagger.io/v2/user/nejlabe3",
+									"protocol": "https",
+									"host": [
+										"petstore",
+										"swagger",
+										"io"
+									],
+									"path": [
+										"v2",
+										"user",
+										"nejlabe3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "NTC_001 - Delete user from the system  with no authorization",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "0f656725-90b8-41bf-84f4-b827c95e2a27",
+										"exec": [
+											"pm.test(\"Status code is 401 Unauthorized\", function(){\r",
+											"    pm.response.have.status(401);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48284099-c3aa32ad-f379-40c3-84ca-6209c56d82f4",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://petstore.swagger.io/v2/user/nejlabe3",
+									"protocol": "https",
+									"host": [
+										"petstore",
+										"swagger",
+										"io"
+									],
+									"path": [
+										"v2",
+										"user",
+										"nejlabe3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "NTC_001 - Delete user from the system with invalid request",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "f0f72d3a-2bd2-420b-8f3a-e317229212bd",
+										"exec": [
+											"pm.test(\"Status code is 404 Not Found\", function(){\r",
+											"    pm.response.to.have.status(404);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48284099-c5c53607-f6e0-4972-af2e-1b7f82b6b5fe",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://petstore.swagger.io/v2/user/nejlabe12321",
+									"protocol": "https",
+									"host": [
+										"petstore",
+										"swagger",
+										"io"
+									],
+									"path": [
+										"v2",
+										"user",
+										"nejlabe12321"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "NTC_002 - Delete user from the system with invalid request",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a01d3c5b-a57f-415e-9984-838a686c0c6f",
+										"exec": [
+											"pm.test(\"Status code is 400 Bad Request\", function(){\r",
+											"    pm.response.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"id": "48284099-a036b485-777a-4646-af56-b8ef1cf241dc",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://petstore.swagger.io/v2/user/$$$$$$",
+									"protocol": "https",
+									"host": [
+										"petstore",
+										"swagger",
+										"io"
+									],
+									"path": [
+										"v2",
+										"user",
+										"$$$$$$"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "48284099-64e7d310-d3fe-4362-9678-60950e22135c"
+				}
+			],
+			"id": "48284099-eab5c5b9-7e4d-4d58-bac0-e71d259d8d2d"
+		}
+	]
+}
